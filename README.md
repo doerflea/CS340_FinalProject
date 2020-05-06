@@ -1,1 +1,1 @@
-# CS340_Cattery
+# CS340_FinalProject
