@@ -80,6 +80,15 @@ body{
   justify-content: space-around;
 }
 
+.cattery-card {
+  display: inline-block;
+  padding: 15px;
+  width: 500px;
+  border: 2px solid #cccccc;
+  border-radius: 15px;
+  text-align: center;
+}
+
 .stat-holder {
   display: flex;
   flex-direction: row;
@@ -93,6 +102,30 @@ body{
 
 .hidden {
   display: none;
+}
+
+#navbar {
+  background-color: #E0E0E0;
+}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar li{
+    display: inline-block;
+}
+
+#navbar li a{
+  padding: 10px;
+  display: inline-block;
+}
+
+#navbar li a:hover {
+  background-color: #C0C0C0;
+  text-decoration: none;
 }
 
 #modal-backdrop {
