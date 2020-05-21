@@ -47,7 +47,9 @@ app.get('/join_cattery', function (req, res){
   res.status(200).render('JoinCatteryPage');
 });
 
-
+app.get('/delete_cattery', function (req, res){
+  res.status(200).render('DeleteCatteryPage');
+});
 
 app.get('*', function (req, res) {
   res.status(404).render('404');

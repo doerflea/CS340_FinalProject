@@ -1,11 +1,12 @@
 
-var cat_in_focus = 0;
+//var cat_in_focus = 0;
 
 /**
 **Function Name: addListToCats
 **Input: N/A
 **Description: Adds event listener when cat card is created which changes cat_in_focus variable
 */
+/*
 function addListToCats(){
   for(var i = 0; i < catCards.length; i++){
   catCards[i].addEventListener('click',function(event) {
@@ -33,4 +34,4 @@ function createCatCard(){
   var cats = document.getElementById('cats');
   cats.insertAdjacentHTML('beforeend',catHTML);
   addListToCats();
-}
+}*/
