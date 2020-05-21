@@ -17,6 +17,10 @@ app.get('/', function (req,res){
 	});
 });
 
+app.get('/login', function (req, res){
+    res.status(200).render('layouts/LoginPage');
+});
+
 app.get('*', function (req, res) {
   res.status(404).render('404');
 });
