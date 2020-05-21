@@ -95,6 +95,30 @@ body{
   display: none;
 }
 
+#navbar {
+  background-color: #E0E0E0;
+}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar li{
+    display: inline-block;
+}
+
+#navbar li a{
+  padding: 10px;
+  display: inline-block;
+}
+
+#navbar li a:hover {
+  background-color: #C0C0C0;
+  text-decoration: none;
+}
+
 #modal-backdrop {
   position: fixed;
   top: 0;
