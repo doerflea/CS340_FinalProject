@@ -1,4 +1,6 @@
 {{> catCare }}
 <section id="cats">
-    {{> makeCats }} 
+    {{#each catData}}
+    {{> catCard}}
+{{/each}} 
 </section>

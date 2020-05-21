@@ -103,8 +103,44 @@ body{
 .hidden {
   display: none;
 }
+.create-account {
+  background-color: #18bc9c;
+  border: 2px solid #cccccc;
+  border-radius: 15px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  margin-top: -250px;
+  margin-left: -300px;
+  width: 600px;
+  height: 500px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Amatic SC';
+}
+
+.login-account{
+  background-color: #18bc9c;
+  border: 2px solid #cccccc;
+  border-radius: 15px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  margin-top: -175px;
+  margin-left: -300px;
+  width: 600px;
+  height: 350px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Amatic SC';
+}
+
 
 #navbar {
+ font-family: 'Amatic SC', cursive;
+  font-size:25px;
   background-color: #E0E0E0;
 }
 
