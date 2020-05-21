@@ -111,7 +111,7 @@ body{
   top: 50%;
   left: 50%;
   position: fixed;
-  margin-top: -250px;
+  margin-top: -100px;
   margin-left: -300px;
   width: 600px;
   height: 500px;
@@ -128,7 +128,42 @@ body{
   top: 50%;
   left: 50%;
   position: fixed;
-  margin-top: -175px;
+  margin-top: -100px;
+  margin-left: -300px;
+  width: 600px;
+  height: 350px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Amatic SC';
+}
+
+.join-cattery{
+  background-color: #18bc9c;
+  border: 2px solid #cccccc;
+  border-radius: 15px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  margin-top: -100px;
+  margin-left: -300px;
+  width: 600px;
+  height: 350px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Amatic SC';
+
+}
+
+.create-cattery{
+  background-color: #18bc9c;
+  border: 2px solid #cccccc;
+  border-radius: 15px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  margin-top: -100px;
   margin-left: -300px;
   width: 600px;
   height: 350px;

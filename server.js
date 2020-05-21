@@ -39,6 +39,16 @@ app.get('/signup', function (req, res){
   res.status(200).render('CreateAccountPage');
 });
 
+app.get('/create_cattery', function (req, res){
+  res.status(200).render('CreateCatteryPage');
+});
+
+app.get('/join_cattery', function (req, res){
+  res.status(200).render('JoinCatteryPage');
+});
+
+
+
 app.get('*', function (req, res) {
   res.status(404).render('404');
 });
