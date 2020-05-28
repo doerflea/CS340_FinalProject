@@ -1,58 +1,41 @@
 var express = require('express');
 var mysql = require('./dbcon.js');
+var bodyParser = require('body-parser');
 
 var app = express();
-//var handlebars = require('express-handlebars').create({defaultLayout: 'CatteryPage'});
-var handlebars = require('express-handlebars').create();
+var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
+app.set('mysql', mysql);
 
+
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
+
 
 app.get('/', function(req, res){
   res.status(200).render('LoginPage');
 });
 
-app.get('/cats', function (req,res){
-  var context = {};
-  mysql.pool.query('SELECT * FROM cat', function(err, rows, fields){
-  	res.status(200).render('CatteryPage', {catData: rows});
-	});
+app.use('/LoginPage', require('./LoginPage.js'));
+app.use('/SignUpPage', require('./SignUpPage.js'));
+app.use('/DeleteCatteryPage', require('./DeleteCatteryPage.js'));
+app.use('/JoinCatteryPage', require('./JoinCatteryPage.js'));
+app.use('/CreateCatteryPage', require('./CreateCatteryPage.js'));
+app.use('/CatteriesPage', require('./CatteriesPage.js'));
+app.use('/CatsPage', require('./CatsPage.js'));
+
+app.use(function(req,res){
+  res.status(404);
+  res.render('404');
 });
 
-app.get('/catteries', function (req,res){
-    // SQL command that grabs the cattery name, creator name, and number of cats from
-    // all catteries.
-    var sqlcommand = 'SELECT cattery.name catteryName, user.name creatorName, COUNT(cat.id) numCats FROM cattery LEFT JOIN user ON cattery.own_id = user.id JOIN cat ON cat.cattery_id=cattery.id;';
-    mysql.pool.query(sqlcommand, function(err, rows, fields){
-  	res.status(200).render('ShowCatteries', {catteryData: rows});
-	});
-});
-
-app.get('/login', function (req, res){
-  res.status(200).render('LoginPage');
-});
-
-app.get('/signup', function (req, res){
-  res.status(200).render('CreateAccountPage');
-});
-
-app.get('/create_cattery', function (req, res){
-  res.status(200).render('CreateCatteryPage');
-});
-
-app.get('/join_cattery', function (req, res){
-  res.status(200).render('JoinCatteryPage');
-});
-
-app.get('/delete_cattery', function (req, res){
-  res.status(200).render('DeleteCatteryPage');
-});
-
-app.get('*', function (req, res) {
-  res.status(404).render('404');
+app.use(function(err, req, res, next){
+  console.error(err.stack);
+  res.status(500);
+  res.render('500');
 });
 
 app.listen(app.get('port'), function () {

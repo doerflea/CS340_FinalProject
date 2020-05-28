@@ -6,8 +6,9 @@
       <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="/style.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.js"></script>
-      <script src="/catCardTemplate.js"></script>
-      <script src="/index.js" charset="utf-8" defer></script>
+      {{#each jsscripts}}
+      <script src="/static/{{this}}"></script>
+      {{/each}}
 
    </head>
 
