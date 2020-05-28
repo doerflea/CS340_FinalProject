@@ -1,7 +1,7 @@
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
-
+    console.log(owner_id);
    router.get('/', function(req, res){
      var mysql = req.app.get('mysql');
      mysql.pool.query('SELECT * FROM cat', function(err, rows, fields){
