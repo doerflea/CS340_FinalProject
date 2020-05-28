@@ -7,14 +7,13 @@ module.exports = function(){
   router.post('/', function(req, res){
          console.log(req.body)
          var mysql = req.app.get('mysql');
-         var inserts = [req.params.username, req.params.password];
-         mysql.pool.query("SELECT COUNT(*) FROM user WHERE username = ? AND password = ?",inserts,function(error, results, fields){
-           console.log(results)
+         var inserts = [req.body.username, req.body.password];
+         mysql.pool.query("SELECT * FROM user WHERE username = ? AND password = ?",inserts,function(error, results, fields){
             if(error){
                  console.log(JSON.stringify(error))
                  res.write(JSON.stringify(error));
                  res.end();
-             }else if(results.count > 0){
+             }else if(results.length > 0){
                console.log(results)
                  res.redirect('/CatsPage');
              }
