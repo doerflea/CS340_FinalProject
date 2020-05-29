@@ -52,10 +52,12 @@ body{
  }
 
 .cat-card {
+  margin: 10px;
   display: inline-block;
   padding: 15px;
   width: 500px;
-  border: 2px solid #cccccc;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
 
@@ -95,7 +97,6 @@ div.cattery-card-container {
   display: inline-block;
   padding: 15px;
   width: 500px;
-  /* border: 2px solid #cccccc; */
   border-radius: 15px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   text-align: center;
