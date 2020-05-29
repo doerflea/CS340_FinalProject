@@ -3,12 +3,23 @@ module.exports = function(){
     var router = express.Router();
 
    router.get('/', function(req, res){
+     if (!req.session.loggedin){
+        console.log("User is not logged in");
+        res.status(200).render('LoginPage');
+         return;
+     }
      var mysql = req.app.get('mysql');
-     // SQL command that grabs the cattery name, creator name, and number of cats from
-     // the user that is logged in.
+     // SQL command that grabs the cattery name and creator's username for all the
+     // catteries belonging to the user that is logged in 
      // TODO: Update this SQL command so we also get the catteries a user is visiting.
-     var sqlcommand = 'SELECT cattery.name catteryName, user.id userID, user.username creatorName, COUNT(cat.id) numCats FROM cattery LEFT JOIN user ON cattery.own_id = user.id JOIN cat ON cat.cattery_id=cattery.id WHERE user.id=' + req.session.userID + ';';
+     var sqlcommand = "SELECT cattery.name catteryName, user.id userID, user.username creatorName FROM cattery LEFT JOIN user ON cattery.own_id = user.id WHERE user.id=" + req.session.userID;
      mysql.pool.query(sqlcommand, function(err, rows, fields){
+         if (err){
+            console.log(JSON.stringify(err))
+            res.write(JSON.stringify(err));
+            res.end();
+            return;
+         }
      res.status(200).render('CatteriesPage', {catteryData: rows});
     });
   });
