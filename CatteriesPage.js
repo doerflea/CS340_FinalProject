@@ -12,7 +12,7 @@ module.exports = function(){
      // SQL command that grabs the cattery name and creator's username for all the
      // catteries belonging to the user that is logged in 
      // TODO: Update this SQL command so we also get the catteries a user is visiting.
-     var sqlcommand = "SELECT cattery.name catteryName, user.id userID, user.username creatorName FROM cattery LEFT JOIN user ON cattery.own_id = user.id WHERE user.id=" + req.session.userID;
+     var sqlcommand = "SELECT cattery.name catteryName, cattery.id catteryId, user.id userID, user.username creatorName FROM cattery LEFT JOIN user ON cattery.own_id = user.id WHERE user.id=" + req.session.userID;
      mysql.pool.query(sqlcommand, function(err, rows, fields){
          if (err){
             console.log(JSON.stringify(err))
@@ -20,6 +20,7 @@ module.exports = function(){
             res.end();
             return;
          }
+     console.log(rows);
      res.status(200).render('CatteriesPage', {catteryData: rows});
     });
   });
