@@ -7,6 +7,7 @@ header {
   display: flex;
   align-items: center;
   position: relative;
+  height: 100px;
 }
 
 body{
@@ -14,12 +15,18 @@ body{
 }
 .siteTitle {
   font-family: 'Amatic SC', cursive;
-  font-size: 120px;
+  font-size: 80px;
   font-weight: 120;
   margin: 0 0 10px 50px;
   padding-top: 20px;
 }
 
+.headerLogo {
+  width: 80px;
+  height: auto;
+  margin-top: 15px;
+  margin-left: 15px;
+}
 .content {
     display: flex;
 }
@@ -187,7 +194,7 @@ body{
 
 #navbar {
  font-family: 'Amatic SC', cursive;
-  font-size:40px;
+  font-size: 30px;
   background-color: #E0E0E0;
 }
 
