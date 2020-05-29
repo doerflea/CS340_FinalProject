@@ -305,3 +305,8 @@ div.cattery-name-holder {
   font-size: 32px;
   margin: 0;
 }
+
+h2.empty-message {
+  font-family: 'Amatic SC', serif;
+  text-align: center;
+}
