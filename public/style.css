@@ -94,6 +94,12 @@ body{
   border: 2px solid #cccccc;
   border-radius: 15px;
   text-align: center;
+  margin: 10px;
+}
+
+div.cattery-name-holder {
+  font-family: 'Amatic SC', cursive;
+  font-size: 30px;
 }
 
 .stat-holder {
