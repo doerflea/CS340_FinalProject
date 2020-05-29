@@ -1,5 +1,3 @@
-global.owner_id = 1;
-
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
@@ -14,7 +12,8 @@ module.exports = function(){
                  res.write(JSON.stringify(error));
                  res.end();
              }else if(results.length > 0){
-               console.log(results)
+                 req.session.loggedin = true;
+                 req.session.userID = results[0].id;
                  res.redirect('/CatsPage');
              }
              else{

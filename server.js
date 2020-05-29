@@ -1,9 +1,15 @@
 var express = require('express');
 var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 
 var app = express();
-var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
