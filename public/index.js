@@ -33,18 +33,18 @@ var xhr = new XMLHttpRequest();
 function stat(att, text) {
   console.log(att);
   var data_total = document.getElementById(cat_id).getAttribute(att);
-  att = document.getElementById(cat_id).getAttribute(att);
-  att = Number(att) + 1
-  console.log("/CatsPage/data-feed-stat/" + att + "/" + cat_id);
+  var att_value = document.getElementById(cat_id).getAttribute(att);
+  att_value = Number(att_value) + 1
+  
+  request_text = "/CatsPage/update_data/" + att.replace("data-", "").replace("-", "_") + "/" + att_value + "/" + cat_id;
+  console.log(request_text)
 
   if (data_total < 2) {
     data_total++;
-    // document.getElementById(cat_id).setAttribute(att, data_total);
-    console.log("/CatsPage/data-feed-stat/" + att + "/" + cat_id);
-    xhr.open("POST", "/CatsPage/data-feed-stat/" + att + "/" + cat_id, true);
+    xhr.open("POST", request_text, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send()
     console.log("post sent")
   }
-  //document.getElementById(cat_id).getElementsByClassName(text).textContent = data_total + "/2";
+  // location.reload();
 }

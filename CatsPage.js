@@ -5,11 +5,11 @@ module.exports = function () {
   var express = require('express');
   var router = express.Router();
 
-  router.post('/data-feed-stat/:stat/:cat_id', function (req, res) {
+  router.post('/update_data/:category/:stat/:cat_id', function (req, res) {
     console.log("================================================")
     // console.log(req.param.stat);
     // console.log(req.param.cat_id);
-    console.log(req.params);
+    console.log(req.params.category);
     // console.log(req.baseUrl);
     // console.log(req.body.stat);
     // console.log(req.body.cat_id);
@@ -18,7 +18,7 @@ module.exports = function () {
     
     
     var mysql = req.app.get('mysql');
-    var sql_command = 'UPDATE cat SET cat.feed_stat =' + req.params.stat + ' WHERE cat.id=' + req.params.cat_id
+    var sql_command = 'UPDATE cat SET cat.' + req.params.category + '=' + req.params.stat + ' WHERE cat.id=' + req.params.cat_id
     console.log(sql_command);
     mysql.pool.query(sql_command, function (err, rows, fields) {
       if (err) {
