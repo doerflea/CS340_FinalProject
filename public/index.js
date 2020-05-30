@@ -24,27 +24,27 @@ var feed = document.getElementById("Feed");
 feed.addEventListener('click', function () { stat("data-feed-stat", "feed-stat-text") });
 
 var feed = document.getElementById("Groom");
-feed.addEventListener('click',  function(){ stat("data-groom-stat","data-groom-text" )});
+feed.addEventListener('click',  function(){ stat("data-groom-stat","groom-stat-text" )});
 
 var feed = document.getElementById("Play");
-feed.addEventListener('click',  function(){ stat("data-play-stat","data-play-text" )});
+feed.addEventListener('click',  function(){ stat("data-play-stat","play-stat-text" )});
 var xhr = new XMLHttpRequest();
 
-function stat(att, text) {
+function stat(att, text_el) {
   console.log(att);
-  var data_total = document.getElementById(cat_id).getAttribute(att);
   var att_value = document.getElementById(cat_id).getAttribute(att);
+  if(att_value < 2){
   att_value = Number(att_value) + 1
-  
   request_text = "/CatsPage/update_data/" + att.replace("data-", "").replace("-", "_") + "/" + att_value + "/" + cat_id;
   console.log(request_text)
-
-  if (data_total < 2) {
-    data_total++;
-    xhr.open("POST", request_text, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send()
-    console.log("post sent")
-  }
-  // location.reload();
+  document.getElementById(cat_id).setAttribute(att, att_value);
+  var textcon = document.getElementById(cat_id).getElementsByClassName(text_el)
+  textcon[0].textContent = att_value + "/2";
+  console.log(textcon[0].textContent)
+  xhr.open("POST", request_text, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send()
+  var data_total = document.getElementById(cat_id).getElementsByClassName(att).textContent = data_total;
+  console.log("post sent")
+}
 }
