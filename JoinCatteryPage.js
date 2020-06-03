@@ -47,6 +47,7 @@ module.exports = function(){
                     }
                     else{
                         console.log("Cattery not found");
+                        res.redirect('/CatteriesPage');
                     }
                 })
             }
