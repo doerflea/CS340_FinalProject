@@ -26,10 +26,10 @@ var feed = document.getElementById("Feed");
 feed.addEventListener('click', function () { stat("data-feed-stat", "feed-stat-text") });
 
 var feed = document.getElementById("Groom");
-feed.addEventListener('click',  function(){ stat("data-groom-stat","groom-stat-text" )});
+feed.addEventListener('click', function () { stat("data-groom-stat", "data-groom-text") });
 
 var feed = document.getElementById("Play");
-feed.addEventListener('click',  function(){ stat("data-play-stat","play-stat-text" )});
+feed.addEventListener('click', function () { stat("data-play-stat", "data-play-text") });
 var xhr = new XMLHttpRequest();
 
 function stat(att, text_el) {
@@ -73,5 +73,17 @@ function img_swap(){
     xhr.open("POST", request_text, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send()
+  }
+}
+
+function deleteCat(id) {
+  console.log("deleteCat in index.js");
+  if (window.confirm("Delete this cat?")) {
+    request_text = "/DeleteCat/" + id;
+    console.log(request_text);
+    xhr.open("POST", request_text, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+    console.log("post sent " + request_text)
   }
 }

@@ -202,12 +202,12 @@ div.cattery-name-holder {
   margin: 10px 10px auto 10px;
   padding: 20px;
   border-radius: 3px;
-  padding:0.35em 1.2em;
-  border:0.1em solid #FFFFFF;
-  margin:0 0.3em 0.3em 0;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #FFFFFF;
+  margin: 0 0.3em 0.3em 0;
   border-radius:0.12em;
   box-sizing: border-box;
-  text-decoration:none;
+  text-decoration: none;
  }
 
 .join-cattery{
@@ -363,4 +363,28 @@ div.cattery-name-holder {
 h2.empty-message {
   font-family: 'Amatic SC', serif;
   text-align: center;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+p.upper-right {
+  float: right;
+  position: static;
+  margin-top: 0px;
+}
+
+p.upper-right:hover {
+  cursor: pointer;
 }
