@@ -32,7 +32,7 @@ module.exports = function () {
             res.end();
           } else {
             img = results[0].img_filepath_adult;
-            var command = 'UPDATE cat SET cat.img_path=' + String(img) + ' WHERE cat.id=' + req.params.cat_id;
+            var command = 'UPDATE cat SET cat.img_path="' + String(img) + '" WHERE cat.id=' + req.params.cat_id;
 
             mysql.pool.query(command, function (err, results, fields) {
               if (err) {
