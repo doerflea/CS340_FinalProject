@@ -25,11 +25,11 @@ window.onload = addListToCats();
 var feed = document.getElementById("Feed");
 feed.addEventListener('click', function () { stat("data-feed-stat", "feed-stat-text") });
 
-var feed = document.getElementById("Groom");
-feed.addEventListener('click', function () { stat("data-groom-stat", "data-groom-text") });
+var groom = document.getElementById("Groom");
+groom.addEventListener('click', function () { stat("data-groom-stat", "groom-stat-text") });
 
-var feed = document.getElementById("Play");
-feed.addEventListener('click', function () { stat("data-play-stat", "data-play-text") });
+var play= document.getElementById("Play");
+play.addEventListener('click', function () { stat("data-play-stat", "play-stat-text") });
 var xhr = new XMLHttpRequest();
 
 function stat(att, text_el) {
@@ -37,19 +37,17 @@ function stat(att, text_el) {
   var val = Number(document.getElementById(cat_id).getAttribute("data-play-stat")) +
     Number(document.getElementById(cat_id).getAttribute("data-groom-stat")) +
     Number(document.getElementById(cat_id).getAttribute("data-feed-stat"));
+    var textcon = document.getElementById(cat_id).getElementsByClassName(text_el)
+    console.log(textcon[0].textContent = att_value + "/2");
 
   if(att_value < 2){
     att_value = Number(att_value) + 1;
     document.getElementById(cat_id).setAttribute(att, att_value);
+    textcon[0].textContent = att_value + "/2";
     img_swap();
     //Sent stat update to server
     request_text = "/CatsPage/update_data/" + att.replace("data-", "").replace("-", "_") + "/" + att_value + "/" + cat_id;
     //console.log(request_text)
-
-    document.getElementById(cat_id).setAttribute(att, att_value);
-
-    var textcon = document.getElementById(cat_id).getElementsByClassName(text_el)
-    textcon[0].textContent = att_value + "/2";
 
     xhr.open("POST", request_text, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
