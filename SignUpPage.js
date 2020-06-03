@@ -12,7 +12,7 @@ module.exports = function(){
         console.log(req.body)
         var mysql = req.app.get('mysql');
 
-        // Check if the username is taken 
+        // Check if the username is taken
         var sql = "SELECT * FROM user WHERE username=?";
         var inserts = [req.body.username];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
@@ -33,17 +33,19 @@ module.exports = function(){
                 return;
             }
             // Create new user
-            var sql = "INSERT INTO user (password, username) VALUES (?,?)";
-            var inserts = [req.body.password, req.body.username];
-            sql = mysql.pool.query(sql,inserts,function(error, results, fields){
-                if(error){
-                    console.log(JSON.stringify(error))
-                    res.write(JSON.stringify(error));
-                    res.end();
-                }else{
-                    res.redirect('/LoginPage');
-                }
-            });
+            else{
+                var sql = "INSERT INTO user (password, username) VALUES (?,?)";
+                var inserts = [req.body.password, req.body.username];
+                sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+                    if(error){
+                        console.log(JSON.stringify(error))
+                        res.write(JSON.stringify(error));
+                        res.end();
+                    }else{
+                        res.redirect('/LoginPage');
+                    }
+                });
+            }
         });
     });
     return router;
