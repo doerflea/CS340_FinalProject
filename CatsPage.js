@@ -6,17 +6,6 @@ module.exports = function () {
   var router = express.Router();
 
   router.post('/update_data/:category/:stat/:cat_id', function (req, res) {
-    console.log("================================================")
-    // console.log(req.param.stat);
-    // console.log(req.param.cat_id);
-    console.log(req.params.category);
-    // console.log(req.baseUrl);
-    // console.log(req.body.stat);
-    // console.log(req.body.cat_id);
-    console.log("================================================")
-    
-    
-    
     var mysql = req.app.get('mysql');
     var sql_command = 'UPDATE cat SET cat.' + req.params.category + '=' + req.params.stat + ' WHERE cat.id=' + req.params.cat_id
     console.log(sql_command);

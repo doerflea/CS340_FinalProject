@@ -33,6 +33,7 @@ app.use('/CreateCatteryPage', require('./CreateCatteryPage.js'));
 app.use('/CatteriesPage', require('./CatteriesPage.js'));
 app.use('/CatteriesPage/:cattery_id', require('./CatsInCatteryPage.js'));
 app.use('/CatsPage', require('./CatsPage.js'));
+app.use('/DeleteCat', require('./DeleteCat.js'));
 
 app.use(function(req,res){
   res.status(404);
