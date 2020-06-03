@@ -23,7 +23,7 @@ module.exports = function(){
             }
             else if(results.length > 0){
                 console.log("Visiting entry already exists");
-                res.redirect('CatteriesPage');
+                res.redirect('JoinCatteryPage');
                 res.end();
             }
             else{
@@ -46,8 +46,8 @@ module.exports = function(){
                         })
                     }
                     else{
-                        console.log("Cattery not found");
-                        res.redirect('/CatteriesPage');
+                        console.log("Cattery not found or user is owner");
+                        res.redirect('JoinCatteryPage');
                     }
                 })
             }
