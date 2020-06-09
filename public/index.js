@@ -7,6 +7,12 @@ var adultImgURL = ["images/black-adult.jpg", "images/orange-adult.jpg", "images/
 
 //Adds event listener which changes focus variable and background color of cat card to each cat card
 function addListToCats() {
+
+  if(catCards.length > 0){
+    cat_id = catCards[0].getAttribute("data-id");
+    catCards[0].style['background-color'] = "#ededf0";
+    last_target = catCards[0];
+ }
   for (var i = 0; i < catCards.length; i++) {
     catCards[i].addEventListener('click', function (event) {
       if (cat_id > -1) {
