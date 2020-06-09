@@ -2,8 +2,8 @@ var focus_variable = -1;
 var catCards = document.getElementsByClassName('cat-card');
 var cat_id = -1;
 
-var kittenImgURL = ["images/black-kitten.jpg", "images/orange-kitten.jpg", "images/siamese-kitten.jpg"];
-var adultImgURL = ["images/black-adult.jpg", "images/orange-adult.jpg", "images/siamese-adult.jpg"];
+var kittenImgURL = ["images/white-kitten.jpg", "images/orange-kitten.jpg", "images/siamese-kitten.jpg"];
+var adultImgURL = ["images/white-adult.jpg", "images/orange-adult.jpg", "images/siamese-adult.jpg"];
 
 //Adds event listener which changes focus variable and background color of cat card to each cat card
 function addListToCats() {
@@ -70,14 +70,26 @@ function img_swap(){
 
   if(val == 6){
     var color_id = Number(document.getElementById(cat_id).getAttribute("data-color"));
-    document.getElementById(cat_id).getElementsByClassName('catImg')[0].src = adultImgURL[1];
+    document.getElementById(cat_id).getElementsByClassName('catImg')[0].src = adultImgURL[color_id];
     var xhr = new XMLHttpRequest();
     request_text = "/CatsPage/update_img/" + cat_id + "/" + color_id;
     console.log(request_text)
     xhr.open("POST", request_text, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send()
+    createCatCard();
   }
+}
+
+function createCatCard(){
+  img_num = Math.floor(Math.random() * 3); // Generates random number (0-2) in order to select a random cat img from catImage array
+  var xhr = new XMLHttpRequest();
+  var cattery_id =   document.getElementById(cat_id).getAttribute("data-cattery-id");
+  request_text = "/CatsPage/make_cat/" + img_num + "/" + cattery_id;
+  console.log(request_text)
+  xhr.open("POST", request_text, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send();
 }
 
 function deleteCat(id) {
