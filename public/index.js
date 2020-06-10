@@ -29,13 +29,20 @@ function addListToCats() {
 window.onload = addListToCats();
 
 var feed = document.getElementById("Feed");
-feed.addEventListener('click', function () { stat("data-feed-stat", "feed-stat-text") });
+if(feed) {
+  feed.addEventListener('click', function () { stat("data-feed-stat", "feed-stat-text") });
+}
 
 var groom = document.getElementById("Groom");
-groom.addEventListener('click', function () { stat("data-groom-stat", "groom-stat-text") });
+if(groom) {
+  groom.addEventListener('click', function () { stat("data-groom-stat", "groom-stat-text") });
+}
 
 var play= document.getElementById("Play");
-play.addEventListener('click', function () { stat("data-play-stat", "play-stat-text") });
+if(play) {
+  play.addEventListener('click', function () { stat("data-play-stat", "play-stat-text") });
+}
+
 var xhr = new XMLHttpRequest();
 
 function stat(att, text_el) {
@@ -97,6 +104,27 @@ function deleteCat(id) {
   if (window.confirm("Delete this cat?")) {
     request_text = "/DeleteCat/" + id;
     console.log(request_text);
+    xhr.open("POST", request_text, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+    console.log("post sent " + request_text)
+  }
+}
+
+function renameCattery(cattery_id) {
+  console.log("rename cattery in index.js: " + cattery_id);
+  var new_name = prompt("Enter a new name for this cattery: ");
+
+  if (window.confirm("New name: " + new_name + "?")) {
+    if(!new_name) {
+      // if no name was input
+      return;
+    }
+
+    console.log("confirmed with new name" + new_name);
+    request_text = "/RenameCattery/" + cattery_id + "/" + new_name;
+    console.log(request_text);
+
     xhr.open("POST", request_text, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send();
