@@ -1,10 +1,11 @@
-{{!-- {{> catCare }} --}}
+<script src="/index.js" charset="utf-8" defer></script>
+{{> catCare }}
 <section id="cats" style="width:100%;">
+    <p class="material-icons upper-right" style="margin:10px" onclick="renameCattery(51)">edit</p>
     {{#if catData}}
         {{#each catData}}
         {{> catCard}}
         {{/each}}
     {{else}}
-    <h2 class="empty-message">This cattery is empty (add cats button?)</h3>
     {{/if}}
 </section>

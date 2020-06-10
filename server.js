@@ -35,6 +35,7 @@ app.use('/CatteriesPage/:cattery_id', require('./CatsInCatteryPage.js'));
 app.use('/CatsPage', require('./CatsPage.js'));
 app.use('/DeleteCat', require('./DeleteCat.js'));
 app.use('/SearchBar', require('./SearchBar.js'));
+app.use('/RenameCattery/', require('./RenameCattery.js'));
 
 app.use(function(req,res){
   res.status(404);

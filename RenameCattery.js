@@ -2,14 +2,16 @@ module.exports = function () {
   var express = require('express');
   var router = express.Router();
 
-  router.post('/:cat_id', function (req, res) {
-
+  router.post('/:cattery_id/:new_name', function (req, res) {
     var mysql = req.app.get('mysql');
-    
-    console.log("DELETE CAT FUNCTION");
-    var sqlcommand = "DELETE FROM cat WHERE cat.id=" + req.params.cat_id;
-    console.log(sqlcommand);
 
+    console.log("renamecattery:");
+    console.log(req.params.cattery_id);
+    console.log(req.params.new_name);
+
+    
+    var sqlcommand = "UPDATE cattery SET cattery.name = '" + req.params.new_name + "' WHERE cattery.id = " + req.params.cattery_id;
+    console.log(sqlcommand);
     mysql.pool.query(sqlcommand, function (err, rows, fields) {
       if (err) {
         console.log(JSON.stringify(err))
@@ -18,7 +20,6 @@ module.exports = function () {
         return;
       }
       console.log(rows);
-      res.status(200).render('CatsInCatteryPage', { catData: rows });
     });
   });
   return router;
