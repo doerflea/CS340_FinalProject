@@ -1,10 +1,7 @@
-{{!-- {{> catCare }} --}}
-<section id="cats" style="width:100%;">
-    {{#if catData}}
-        {{#each catData}}
-        {{> catCard}}
-        {{/each}}
-    {{else}}
-    <h2 class="empty-message">This cattery is empty (add cats button?)</h3>
-    {{/if}}
+<script src="/index.js" charset="utf-8" defer></script>
+{{> catCare }}
+<section id="cats">
+    {{#each catData}}
+    {{> catCard}}
+{{/each}}
 </section>
