@@ -85,7 +85,7 @@ CREATE TABLE `cat` (
 --
 INSERT INTO `cat` (`id`, `feed_stat`, `groom_stat`, `play_stat`, `owner_id`, `color_id`, `cattery_id`, `img_path`) VALUES
 (707, 0, 0, 0, 1, 0, 1, 'images/white-kitten.jpg'),
-(708, 2, 2, 2, 1, 2, 2 'images/siamese-kitten.jpg'),
+(708, 2, 2, 2, 1, 2, 2, 'images/siamese-kitten.jpg'),
 (709, 2, 2, 2, 4, 1, 3, 'images/orange-kitten.jpg'),
 (710, 2, 2, 0, 4, 1, 4, 'images/orange-kitten.jpg');
 
