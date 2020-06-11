@@ -39,7 +39,9 @@ module.exports = function () {
                 console.log(JSON.stringify(err))
                 res.write(JSON.stringify(err));
                 res.end();
-              } else { }
+              } else {
+              location.reload(true);
+            }
             });
           }
         });
